@@ -1,0 +1,27 @@
+<!-- extends表明此页面继承自 base.html 文件 -->
+{% extends "base.html" %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+收藏夹页
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+
+  <div class="row">
+    {% for url in urls %}
+    <div class="col-sm-6 mt-4 ">
+      <div class="card rounded shadow-lg">
+        <a type="button" class="btn btn-secondary" href={{ url.url }} target="view_window">
+          <h5 class="text-center text-bottom">{{url.title}}</h5>
+        </a>
+        <h5 class="text-center">{{url.abstract}}</h5>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+{% endblock content %}

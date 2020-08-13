@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 #导几个包
 from django.conf import settings
 from django.conf.urls.static import static
@@ -23,6 +23,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html')),
     path('admin/', admin.site.urls),
+    path('收藏夹/', include('收藏夹.urls', namespace='收藏夹')),
 ]
 
 #加上静态和媒体的url
